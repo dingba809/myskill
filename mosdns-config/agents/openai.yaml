@@ -1,0 +1,5 @@
+interface:
+  display_name: "Mosdns Config"
+  short_description: "Official-doc help for mosdns v4/v5 config tasks"
+  brand_color: "#2563EB"
+  default_prompt: "Use $mosdns-config to explain, edit, or generate mosdns v4/v5 configuration."
