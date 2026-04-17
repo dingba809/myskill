@@ -1,0 +1,4 @@
+interface:
+  display_name: "sing-box Config"
+  short_description: "Explain and troubleshoot sing-box config"
+  default_prompt: "Use this skill to explain sing-box configuration objects, generate or modify sing-box configs, and troubleshoot configuration behavior using the bundled official references."

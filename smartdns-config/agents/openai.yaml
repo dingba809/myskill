@@ -1,0 +1,4 @@
+interface:
+  display_name: "SmartDNS Config"
+  short_description: "Generate and troubleshoot SmartDNS config"
+  default_prompt: "Use this skill to answer SmartDNS configuration questions, generate config snippets, modify existing smartdns.conf content, and troubleshoot configuration behavior using the bundled references."
