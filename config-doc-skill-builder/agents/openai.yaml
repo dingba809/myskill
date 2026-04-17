@@ -1,0 +1,4 @@
+interface:
+  display_name: "Config Doc Skill Builder"
+  short_description: "Build skills from official config docs"
+  default_prompt: "Use $config-doc-skill-builder to turn an official configuration documentation site into a self-contained Codex skill with structured references and verification checks."
