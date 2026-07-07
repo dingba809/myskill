@@ -1,0 +1,3 @@
+name: "vyos-config"
+short_description: "Help you configure and troubleshoot VyOS 1.5 routers"
+default_prompt: "Act as an expert in VyOS router configuration using the $vyos-config skill."
