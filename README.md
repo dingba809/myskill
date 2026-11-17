@@ -1,6 +1,6 @@
 # myskill
 
-这是一个收集 Codex skill 的私有仓库，当前包含网络配置类与铁路车次查询类 skill。
+这是一个收集 Codex skill 的私有仓库，当前包含网络配置类与出行查询类 skill。
 
 ## Skills
 
@@ -9,6 +9,7 @@
 - `mosdns-config/`：用于基于官方 mosdns wiki 解释、生成、修改和排障 mosdns 配置，覆盖 v4 / v5 差异以及 v4 -> v5 迁移
 - `config-doc-skill-builder/`：用于把官方配置文档站整理成可复用、可校验、可自包含的配置类 Codex skill
 - `12306/`：用于查询中国铁路 12306 车次、余票、车站信息，以及带到达截止时间的一次中转方案
+- `flight-price-web/`：通过 OpenCLI 和 Chrome 从携程、飞猪网页查询国内单程直飞航班与机票展示价格，保留来源、抓取时间、价格口径和跨日标记
 
 ## 便捷安装
 
@@ -107,3 +108,20 @@ node 12306/scripts/stations.mjs 武汉
 # 查询到达截止时间内的最佳直达/一次中转方案
 node 12306/scripts/transfer-query.mjs 贵阳 泸州 -d 2026-05-01 --arrive-before 12:00 --view both
 ```
+
+## 网页机票查询 Skill 用法
+
+`flight-price-web/` 复用 Chrome 登录状态，依赖 OpenCLI 和已连接的 OpenCLI 扩展，无需 API Key 或导出 Cookie。安装后可用自然语言查询，例如：“查询11月28日丽江到贵阳的直飞航班，分别列出携程和飞猪的网页价格”。
+
+```bash
+# 安装到默认 skill 目录
+bash scripts/install-skills.sh flight-price-web
+
+# 安装到 Pi 等工具支持的通用 skill 目录
+bash scripts/install-skills.sh --dest ~/.agents/skills flight-price-web
+
+# 运行提取规则的本地回归检查（无需浏览器）
+node flight-price-web/scripts/extract.test.mjs
+```
+
+详细操作与限制见 [flight-price-web/SKILL.md](flight-price-web/SKILL.md)。当前提取范围是已加载的直飞卡片；展示价未必包含税费，登录或验证码需在浏览器处理。
